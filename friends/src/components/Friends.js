@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 import FriendForm from './FriendForm'
-import { Link, Route } from 'react-router-dom'
+import { Link, Route } from 'react-router-dom';
+import PrivateRoute from './PrivateRoute';
+import Friend from './Friend';
 
 
 const Friends = () => {
@@ -28,8 +30,9 @@ const Friends = () => {
                     </Link>
                 
             )): 'Loading friends data...' }
+           <hr />
+           {friends ? <PrivateRoute path="/friends/:id" component= {Friend} /> : null }
            
-       
 
         </div>
     )

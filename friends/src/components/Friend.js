@@ -28,7 +28,7 @@ const Friend = (props) => {
                 <h2>{friend.name}</h2>
                 <p>Age: {friend.age}</p>
                 <p>Email: {friend.email}</p> 
-                </div> : 'Loading user data' }
+                </div> : null}
             
         </div>
     )
