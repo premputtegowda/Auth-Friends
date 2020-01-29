@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
-import Friend from './Friend'
+import FriendForm from './FriendForm'
 import { Link, Route } from 'react-router-dom'
 
 
@@ -18,6 +18,7 @@ const Friends = () => {
 
     return (
         <div>
+            <FriendForm getFriends = {getFriends}/>
             {friends ? 
              
              friends.map((friend,index) => (
