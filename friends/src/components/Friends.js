@@ -12,7 +12,7 @@ const Friends = () => {
         .catch(err => console.log(err))
     }
     useEffect(getFriends,[])
-    console.log(friends)
+    
    
    
 
@@ -20,17 +20,15 @@ const Friends = () => {
         <div>
             {friends ? 
              
-             friends.map(friend => (
+             friends.map((friend,index) => (
                 
-                    <Link to={`/friends/${friend.id}`}>
-                        <div key={friend.id}> {friend.name}</div>
+                    <Link key={index} to={`/friends/${friend.id}`}>
+                        <div > {friend.name}</div>
                     </Link>
                 
             )): 'Loading friends data...' }
            
-           {/* <PrivateRoute path="friends/:id">
-               <Friend />
-           </PrivateRoute> */}
+       
 
         </div>
     )

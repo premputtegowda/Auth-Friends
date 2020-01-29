@@ -4,22 +4,32 @@ import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 const Friend = (props) => {
     
-    const[user, setUser] = useState()
+    const[friend, setFriend] = useState()
 
     const {id} = useParams()
+    console.log(friend)
+   
 
-    const getUser = () => {
-        axiosWithAuth().get('/friends/id')
-        .then(res => console.log(res))
-
+    const getFriend = () => {
+        axiosWithAuth().get(`/api/friends/${id}`)
+        .then(res=> setFriend(res.data))
+        .catch(err => console.log(err))
     }
-    useEffect(api, setUser(), [id])
+  
+    useEffect(getFriend,[id])
+    
 
   
 
     return ( 
         <div>
-            <h2>{user.name}</h2>
+            {friend ? 
+            <div>
+                <h2>{friend.name}</h2>
+                <p>Age: {friend.age}</p>
+                <p>Email: {friend.email}</p> 
+                </div> : 'Loading user data' }
+            
         </div>
     )
 }
